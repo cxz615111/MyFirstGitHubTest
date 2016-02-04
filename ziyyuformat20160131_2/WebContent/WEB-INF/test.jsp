@@ -5,6 +5,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<input table>
 </body>
 </html>
