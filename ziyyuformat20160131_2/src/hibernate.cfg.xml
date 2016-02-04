@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+	<session-factory>
+
+		<!-- 連線池c3p0設定 -->
+		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;DatabaseName=ziyuu</property>
+		<property name="hibernate.connection.username">sa</property>
+		<property name="hibernate.connection.password">sa123456</property>
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.timeout">1800</property>
+		<property name="hibernate.c3p0.max_statements">50</property>
+
+		<!--SQL方言,以下使用SQLServer -->
+		<property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+
+		<!--是否要顯示實際操作資料庫時的SQL -->
+		<property name="hibernate.show_sql">true</property>
+
+		<!-- Disable the second-level cache -->
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+		<!--交易管理類型, 以下使用JDBC Transaction -->
+		<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+
+		<!-- Enable Hibernate's automatic session context management -->
+		<property name="hibernate.current_session_context_class">thread</property>
+
+		<!--Java物件與資料庫表格的映射檔 -->
+		<mapping resource="com/ziyyu/model/_01_member/Member.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_02_nationality/Nationality.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_03_dep_record/Dep_record.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_04_mem_grade/Mem_grade.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_05_article/Article.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_06_article_image/Article_Image.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_07_repost/Repost.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_08_hp/HP.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_09_hp_air_ticket/HP_Air_Ticket.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_10_hp_hotelri/HP_HotelRI.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_11_scard/Scard.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_12_taxi/Taxi.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_13_trans/Trans.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_14_ticket/Ticket.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_15_ecard/Ecard.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_16_hp_trans_ct/HP_Trans_CT.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_17_hp_ticket_ct/HP_Ticket_CT.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_18_hp_easy_ct/HP_Easy_CT.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_19_hp_hotelri_ct/HP_HotelRI_CT.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_20_hp_pur_order/HP_Pur_Order.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_21_hp_trav_info/HP_Trav_Info.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_22_ps_air_ticket_order/PS_Air_Ticket_Order.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_23_ps_hotel_order/PS_Hotel_Order.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_24_hotel/Hotel.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_25_airline/Airline.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_26_ps_hotel_item/PS_Hotel_Item.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_27_ps_air_item/PS_Air_Item.hbm.xml" />
+		<mapping resource="com/ziyyu/model/_28_admin/Admin.hbm.xml" />
+	</session-factory>
+
+</hibernate-configuration>

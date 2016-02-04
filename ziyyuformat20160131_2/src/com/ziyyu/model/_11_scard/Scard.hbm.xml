@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.ziyyu.model._11_scard.ScardVO" table="Scard">
+
+		<id name="hp_Scard_Num" column="HP_scard_num">
+
+		</id>
+
+		<property name="tel_Comp" column="tel_comp" />
+		<property name="scard_Cate" column="Scard_cate" />
+		<property name="scard_Price" column="Scard_price" />
+		<property name="scard_Inv" column="Scard_inv" />
+		
+		<set name="hpVOs" table="HP" lazy="true" cascade="all" inverse="false" order-by="HP_num asc">
+		     <key><column name="hp_Scard_Num"/></key>
+		     <one-to-many class="com.ziyyu.model._08_hp.HPVO"/>
+		</set>
+	
+	
+	
+	</class>
+</hibernate-mapping>

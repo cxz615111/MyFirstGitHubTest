@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.ziyyu.model._27_ps_air_item.PS_Air_ItemVO"
+		table="PS_Air_Item">
+		<id name="ps_Air_Item" column="PS_air_item">
+		</id>
+
+		<property name="ps_Air_Class" column="PS_air_class" />
+		<property name="ps_Status" column="ps_status" />
+
+
+		<many-to-one name="airlineVO" class="com.ziyyu.model._25_airline.AirlineVO"
+			lazy="false">
+			<column name="Carrier_num" />
+		</many-to-one>
+
+
+	</class>
+</hibernate-mapping>

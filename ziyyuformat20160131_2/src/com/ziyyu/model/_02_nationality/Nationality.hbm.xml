@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.ziyyu.model._02_nationality.NationalityVO"
+		table="Nationality">
+
+		<id name="code" column="code" />
+
+		<property name="country" column="country" />
+		<property name="state" column="state" />
+
+		<set name="hp_Trav_Infos" table="HP_Trav_Info" lazy="true"
+			cascade="all" inverse="true">
+			<key>
+				<column name="code" />
+			</key>
+			<one-to-many class="com.ziyyu.model._21_hp_trav_info.HP_Trav_InfoVO" />
+		</set>
+
+		<set name="members" table="Member" lazy="true"
+			cascade="all" inverse="true">
+			<key>
+				<column name="code" />
+			</key>
+			<one-to-many class="com.ziyyu.model._01_member.MemberVO" />
+		</set>
+
+	</class>
+</hibernate-mapping>

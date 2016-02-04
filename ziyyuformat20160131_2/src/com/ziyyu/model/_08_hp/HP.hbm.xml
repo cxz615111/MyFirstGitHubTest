@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.ziyyu.model._08_hp.HPVO" table="HP">
+
+		<id name="hp_Num" column="HP_num">
+
+		</id>
+
+		<property name="hp_Name_Zh" column="HP_name_zh" />
+		<property name="hp_Name_En" column="HP_name_en" />
+		<property name="hp_Air_Amount" column="HP_air_amount" />
+		<property name="hp_Scard_Amount" column="HP_scard_amount" />
+		<property name="hp_Price" column="HP_price" />
+		<property name="hp_Inv" column="HP_inv" />
+		<property name="hp_Stat" column="HP_stat" />
+
+
+		<many-to-one name="hp_Air_Ticket"
+			class="com.ziyyu.model._09_hp_air_ticket.HP_Air_TicketVO">
+			<column name="hp_Air_Num" />
+		</many-to-one>
+
+		<many-to-one name="scard" class="com.ziyyu.model._11_scard.ScardVO">
+			<column name="hp_Scard_Num" />
+		</many-to-one>
+
+		<many-to-one name="taxi" class="com.ziyyu.model._12_taxi.TaxiVO">
+			<column name="HP_taxi_guild" />
+		</many-to-one>
+
+		<set name="hp_Ticket_CtVOs" table="HP_Ticket_CT" lazy="true"
+			cascade="all" inverse="false" order-by="ticket_num asc">
+			<key>
+				<column name="hp_Num" />
+			</key>
+			<one-to-many class="com.ziyyu.model._17_hp_ticket_ct.HP_Ticket_CTVO" />
+		</set>
+
+		<set name="hp_Hotelri_CtVOs" table="HP_HotelRI_CT" lazy="true"
+			cascade="all" inverse="false" order-by="HP_hotelRI_num asc">
+			<key>
+				<column name="hp_Num" />
+			</key>
+			<one-to-many class="com.ziyyu.model._19_hp_hotelri_ct.HP_HotelRI_CTVO" />
+		</set>
+
+		<set name="hp_Trans_CtVOs" table="HP_Trans_CT" lazy="true"
+			cascade="all" inverse="false" order-by="trans_ticket_num asc">
+			<key>
+				<column name="hp_Num" />
+			</key>
+			<one-to-many class="com.ziyyu.model._16_hp_trans_ct.HP_Trans_CTVO" />
+		</set>
+
+		<set name="hp_Pur_OrderVOs" table="HP_Pur_Order" lazy="true"
+			cascade="all" inverse="false" order-by="pay_detail_num asc">
+			<key><column name="hp_Num"/> </key>
+			<one-to-many class="com.ziyyu.model._20_hp_pur_order.HP_Pur_OrderVO"/>
+		</set>
+
+		<set name="hp_Easy_CtVOs" table="HP_Easy_CT" lazy="true" cascade="all"
+			inverse="false" order-by="Ecard_num asc">
+			<key><column name="hp_Num"></column> </key>
+			<one-to-many class="com.ziyyu.model._18_hp_easy_ct.HP_Easy_CTVO"/>
+		</set>
+
+
+	</class>
+</hibernate-mapping>

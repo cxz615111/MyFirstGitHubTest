@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.ziyyu.model._06_article_image.Article_ImageVO"
+		table="Article_Image">
+
+		<composite-id>
+			<key-property name="img_Name" column="img_name" />
+			<key-many-to-one name="articleVO"
+				class="com.ziyyu.model._05_article.ArticleVO" lazy="false">
+				<column name="article_num" />
+			</key-many-to-one>
+		</composite-id>
+
+		<property name="img_Cont" column="img_cont" />
+		<property name="img_Stat" column="img_stat" />
+	</class>
+</hibernate-mapping>

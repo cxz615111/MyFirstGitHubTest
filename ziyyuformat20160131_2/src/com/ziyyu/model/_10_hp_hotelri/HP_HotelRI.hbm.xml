@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.ziyyu.model._10_hp_hotelri.HP_HotelRIVO" table="HP_HotelRI">
+
+		<id name="hp_HotelRI_Num" column="HP_hotelRI_num">
+
+		</id>
+
+		<property name="hp_Hotel_Checktime" column="HP_hotel_checktime" />
+		<property name="hp_Hotel_Night" column="HP_hotel_night" />
+		<property name="room_Name" column="room_name" />
+		<property name="bed" column="bed" />
+		<property name="room_Num" column="room_num" />
+		<property name="hp_Hotel_Price" column="HP_hotel_price" />
+	
+	    <many-to-one name="hotel" class="com.ziyyu.model._24_hotel.HotelVO">
+	    <column name="hotel_Num"></column>
+	    </many-to-one>
+	    
+	    <set name="hp_Hotelri_CtVOs" table="HP_HotelRI_CT" lazy="true" cascade="all" inverse="false" order-by="HP_hotelRI_num asc">
+	    <key><column name="hp_HotelRI_Num"/> </key>
+	    <one-to-many class="com.ziyyu.model._19_hp_hotelri_ct.HP_HotelRI_CTVO"/>
+	    </set>
+	
+	</class>
+</hibernate-mapping>

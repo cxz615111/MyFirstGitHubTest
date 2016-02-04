@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ziyyu.model._13_trans.TransVO" table="Trans" >
+        
+        <id name="trans_Ticket_Num" column="Trans_ticket_num">
+        </id>
+        
+        <property name="trans_Cate" column="Trans_cate" />
+        <property name="trans_Class" column="Trans_class" />
+        <property name="trans_Inv" column="Trans_inv" />
+        <property name="trans_Price" column="Trans_price" />
+        
+        <set name="hp_Trans_CtVOs" table="HP_Trans_CTVO" lazy="true" cascade="all" inverse="false" order-by="HP_num asc">
+		     <key><column name="trans_Ticket_Num"/></key>
+		     <one-to-many class="com.ziyyu.model._16_hp_trans_ct.HP_Trans_CTVO"/>
+		</set>
+    </class>
+</hibernate-mapping>
+

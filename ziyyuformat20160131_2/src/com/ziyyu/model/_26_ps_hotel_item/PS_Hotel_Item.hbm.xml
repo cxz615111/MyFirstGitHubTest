@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.ziyyu.model._26_ps_hotel_item.PS_Hotel_ItemVO"
+		table="PS_Hotel_Item">
+		<id name="ps_Hotel_Item" column="PS_hotel_item">
+		</id>
+
+		<property name="room_Name" column="room_name" />
+		<property name="guest_Num" column="guest_num" />
+		<property name="ps_Status" column="ps_status" />
+		
+
+		<many-to-one name="hotelVO" class="com.ziyyu.model._24_hotel.HotelVO"
+			lazy="false">
+			<column name="hotel_num" />
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>

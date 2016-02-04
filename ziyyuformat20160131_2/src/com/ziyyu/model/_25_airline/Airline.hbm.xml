@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ziyyu.model._25_airline.AirlineVO" table="Airline" >
+        
+        <id name="carrier_Num" column="carrier_num">
+     
+        </id>
+        
+        <property name="air_Name_Zh" column="air_name_zh" />
+        <property name="air_Name_En" column="air_name_en" />
+        <property name="air_Fax" column="air_fax" />
+        <property name="air_Tel" column="air_tel" />
+        <property name="air_Address" column="air_address" />
+        
+        	<set name="ps_Air_Ticket_OrderVOs" table="PS_Air_Ticket_Order" lazy="true"
+			cascade="all" inverse="false" order-by="PS_air_order asc">
+			<key>
+				<column name="carrier_num" />
+			</key>
+			<one-to-many class="com.ziyyu.model._22_ps_air_ticket_order.PS_Air_Ticket_OrderVO" />
+		</set>
+		
+			<set name="hp_Air_TicketVOs" table="HP_Air_Ticket" lazy="true"
+			cascade="all" inverse="false" order-by="HP_air_num asc">
+			<key>
+				<column name="carrier_num" />
+			</key>
+			<one-to-many class="com.ziyyu.model._09_hp_air_ticket.HP_Air_TicketVO" />
+		</set>
+		
+			<set name="ps_Air_ItemVOs" table="PS_Air_Item" lazy="true"
+			cascade="all" inverse="false" order-by="PS_air_item asc">
+			<key>
+				<column name="carrier_num" />
+			</key>
+			<one-to-many class="com.ziyyu.model._27_ps_air_item.PS_Air_ItemVO" />
+		</set>
+    </class>
+</hibernate-mapping>

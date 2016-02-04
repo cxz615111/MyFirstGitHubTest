@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.ziyyu.model._05_article.ArticleVO" table="Article">
+
+	<id name="article_Num" column="article_num">
+	
+		<generator class="identity"/>
+	
+	</id>
+
+	<property name="post_Time" column="post_time"/>
+	
+	
+	<many-to-one name="memberVO" class="com.ziyyu.model._01_member.MemberVO" lazy="false">
+		<column name="account"/>
+	</many-to-one>
+	
+	<many-to-one name="reporter_memVO" class="com.ziyyu.model._01_member.MemberVO" lazy="false">
+		<column name="reporter_account"/>
+	</many-to-one>
+	
+	<property name="article_Cont" column="article_cont"/>
+	<property name="gp" column="gp"/>
+	<property name="bp" column="bp"/>
+	<property name="edit_Time" column="edit_time"/>
+	<property name="user_Stat" column="user_stat"/>
+	<property name="article_Type" column="article_type"/>
+	<property name="repost_Num" column="repost_num"/>
+	
+	<set name="article_Images" table="Article_Image" lazy="true"
+			cascade="all" inverse="true" order-by="article_num asc">
+			<key><column name="article_num"/></key>
+			<one-to-many class="com.ziyyu.model._06_article_image.Article_ImageVO"/>
+	</set>
+	<set name="reposts" table="Repost" lazy="true"
+			cascade="all" inverse="true" order-by="article_num asc">
+			<key><column name="article_num"/></key>
+			<one-to-many class="com.ziyyu.model._07_repost.RepostVO"/>
+	</set>
+	
+	</class>
+</hibernate-mapping>

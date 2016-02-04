@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ziyyu.model._09_hp_air_ticket.HP_Air_TicketVO" table="HP_Air_Ticket" >
+        
+        <id name="hp_Air_Num" column="HP_air_num">
+            
+        </id>
+      
+        <property name="hp_Flight_Date"  column="HP_flight_date"/>
+        <property name="hp_Back_Date"  column="HP_back_date"/>
+        <property name="origin"  column="origin"/>                
+        <property name="destination"  column="destination"/>      
+        <property name="hp_Air_Class"  column="HP_air_class"/>    
+        <property name="hp_Air_Price"  column="HP_air_price"/>    
+        <property name="hp_Air_Inv"  column="HP_air_inv"/>        
+        
+        
+        <many-to-one name="airlineVO" class="com.ziyyu.model._25_airline.AirlineVO" >
+              <column name="carrier_Num"/>
+        </many-to-one>  
+        
+        <set name="hpVOs" table="HP" lazy="true" cascade="all" inverse="false" order-by="HP_num asc">
+          <key><column name="hp_Air_Num"/> </key>
+          <one-to-many class="com.ziyyu.model._08_hp.HPVO"/>
+        </set>  
+   
+  </class>
+</hibernate-mapping>

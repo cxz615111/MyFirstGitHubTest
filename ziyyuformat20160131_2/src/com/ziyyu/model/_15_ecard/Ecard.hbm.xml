@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ziyyu.model._15_ecard.EcardVO" table="Ecard" >
+        
+        <id name="ecard_Num" column="Ecard_num">
+        </id>
+        
+        <property name="ecard_Price" column="Ecard_price" />
+        <property name="ecard_Inv" column="Ecard_inv" />
+        <property name="ecard_Type_Zh" column="Ecard_type_zh" />
+        <property name="ecard_Type_En" column="Ecard_type_en" />
+        <set name="hp_Easy_CtVOs" table="HP_Easy_CT" lazy="true" cascade="all" inverse="false" order-by="HP_num asc">
+		     <key><column name="ecard_Num"/></key>
+		     <one-to-many class="com.ziyyu.model._18_hp_easy_ct.HP_Easy_CTVO"/>
+		</set>
+        
+    </class>
+</hibernate-mapping>
+

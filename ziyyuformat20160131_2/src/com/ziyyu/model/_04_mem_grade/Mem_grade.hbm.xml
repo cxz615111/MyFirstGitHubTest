@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ziyyu.model._04_mem_grade.Mem_GradeVO" table="Mem_grade" >
+        
+        <id name="mem_Grade_Id" column="mem_grade_id"></id>
+        
+        <property name="mem_Grade_Name" column="mem_grade_name" />
+
+		<set name="members" table="Member" lazy="true"
+			cascade="all" inverse="true">
+			<key>
+				<column name="mem_grade_id" />
+			</key>
+			<one-to-many class="com.ziyyu.model._01_member.MemberVO" />
+		</set>
+        
+    </class>
+</hibernate-mapping>

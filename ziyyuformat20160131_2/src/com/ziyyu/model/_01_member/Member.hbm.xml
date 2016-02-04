@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.ziyyu.model._01_member.MemberVO" table="Member">
+
+		<id name="account" column="account" />
+
+		<property name="password" column="password" />
+		<property name="username" column="username" />
+		<property name="email" column="email" />
+		<property name="person_Id" column="person_id" />
+		<property name="mob_Phone" column="mob_phone" />
+		<property name="passport_Num" column="passport_num" />
+		<property name="expiry_Date" column="expiry_date" />
+		<property name="name_En" column="name_en" />
+
+		<many-to-one name="nationalityVO"
+			class="com.ziyyu.model._02_nationality.NationalityVO" lazy="false">
+			<column name="code" />
+		</many-to-one>
+
+		<property name="birth" column="birth" />
+		<property name="gender" column="gender" />
+		<property name="address" column="address" />
+		<property name="off_Phone" column="off_phone" />
+		<property name="home_Phone" column="home_phone" />
+		<property name="income" column="income" />
+		<property name="edu_Level" column="edu_level" />
+		<property name="mem_Pic" column="mem_pic" />
+
+
+		<many-to-one name="mem_GradeVO"
+			class="com.ziyyu.model._04_mem_grade.Mem_GradeVO" lazy="false">
+			<column name="mem_grade_id" />
+		</many-to-one>
+
+		<property name="mem_Auth" column="mem_auth" />
+		<property name="acc_Point" column="acc_point" />
+
+
+
+
+		<set name="ps_Hotel_Orders" table="Member" lazy="true" cascade="all"
+			inverse="true">
+			<key>
+				<column name="account" />
+			</key>
+			<one-to-many class="com.ziyyu.model._23_ps_hotel_order.PS_Hotel_OrderVO" />
+		</set>
+
+
+		<set name="hp_Pur_Orders" table="HP_Pur_Order" lazy="true"
+			cascade="all" inverse="true">
+			<key>
+				<column name="account" />
+			</key>
+			<one-to-many class="com.ziyyu.model._20_hp_pur_order.HP_Pur_OrderVO" />
+		</set>
+
+
+
+		<set name="ps_Air_Ticket_Orders" table=" PS_Air_Ticket_Order"
+			lazy="true" cascade="all" inverse="true">
+			<key>
+				<column name="account" />
+			</key>
+			<one-to-many
+				class="com.ziyyu.model._22_ps_air_ticket_order.PS_Air_Ticket_OrderVO" />
+		</set>
+
+
+		<set name="dep_Records" table="Dep_record" lazy="true" cascade="all"
+			inverse="true">
+			<key>
+				<column name="account" />
+			</key>
+			<one-to-many class="com.ziyyu.model._03_dep_record.Dep_RecordVO" />
+		</set>
+
+
+
+		<set name="articles" table="Article" lazy="true" cascade="all"
+			inverse="true">
+			<key>
+				<column name="account" />
+			</key>
+			<one-to-many class="com.ziyyu.model._05_article.ArticleVO" />
+		</set>
+
+
+		<set name="reporter_Accounts" table="Article" lazy="true"
+			cascade="all" inverse="true">
+			<key>
+				<column name="account" />
+			</key>
+			<one-to-many class="com.ziyyu.model._05_article.ArticleVO" />
+		</set>
+
+
+		<set name="reposts" table="Repost" lazy="true" cascade="all"
+			inverse="true">
+			<key>
+				<column name="account" />
+			</key>
+			<one-to-many class="com.ziyyu.model._07_repost.RepostVO" />
+		</set>
+
+	</class>
+</hibernate-mapping>

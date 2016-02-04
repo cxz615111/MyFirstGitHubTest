@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ziyyu.model._12_taxi.TaxiVO" table="Taxi" >
+        
+        <id name="hp_Taxi_Guild" column="hp_taxi_guild">
+        </id>
+        
+        <property name="taxi_Comp" column="Taxi_comp" />
+        <property name="taxi_Price" column="Taxi_price" />
+        
+        <set name="hpVOs" table="HP" lazy="false" cascade="all" inverse="true" order-by="HP_num asc">
+		     <key><column name="HP_taxi_guild"/></key>
+		     <one-to-many class="com.ziyyu.model._08_hp.HPVO"/>
+		</set>
+    </class>
+</hibernate-mapping>
+

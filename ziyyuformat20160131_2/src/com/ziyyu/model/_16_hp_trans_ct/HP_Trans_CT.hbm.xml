@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.ziyyu.model._16_hp_trans_ct.HP_Trans_CTVO"
+		table="HP_Trans_CT">
+
+		<composite-id>
+			<key-many-to-one name="hpVO"
+				class="com.ziyyu.model._08_hp.HPVO" lazy="false">
+				<column name="HP_num" />
+			</key-many-to-one>
+			<key-many-to-one name="transVO"
+				class="com.ziyyu.model._13_trans.TransVO" lazy="false">
+				<column name="trans_ticket_num" />
+			</key-many-to-one>	
+		</composite-id>
+
+		<property name="amount" column="amount" />
+		
+	</class>
+</hibernate-mapping>

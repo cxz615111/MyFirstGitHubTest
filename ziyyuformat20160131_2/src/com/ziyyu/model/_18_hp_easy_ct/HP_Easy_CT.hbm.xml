@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ziyyu.model._18_hp_easy_ct.HP_Easy_CTVO" table="HP_Easy_CT" >
+        
+        <composite-id>
+     
+            	<key-many-to-one name="hp" class="com.ziyyu.model._08_hp.HPVO" lazy="false">
+				<column name="HP_num" />
+			</key-many-to-one>
+			
+				<key-many-to-one name="ecard" class="com.ziyyu.model._15_ecard.EcardVO" lazy="false">
+				<column name="Ecard_num" />
+			</key-many-to-one>
+	
+            
+        </composite-id> 
+        
+        <property name="amount" column="amount" />
+      
+        
+    </class>
+</hibernate-mapping>

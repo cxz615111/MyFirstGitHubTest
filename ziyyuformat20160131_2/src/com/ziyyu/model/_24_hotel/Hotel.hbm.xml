@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.ziyyu.model._24_hotel.HotelVO" table="Hotel">
+
+		<id name="hotel_Num" column="hotel_num">
+
+		</id>
+
+        
+		<property name="hotel_Loc" column="hotel_loc" />
+		<property name="hotel_Name_Zh" column="hotel_name_zh" />
+		<property name="hotel_Name_En" column="hotel_name_en" />
+		<property name="hotel_Type" column="hotel_type" />
+		<property name="hotel_Tel" column="hotel_tel" />
+		<property name="hotel_Star" column="hotel_star" />
+		<property name="hotel_Fax" column="hotel_fax" />
+		<property name="checktime" column="checktime" />
+		<property name="hotel_Info" column="hotel_info" />
+		<property name="room_Pref" column="room_pref" />
+
+
+		<set name="ps_Hotel_OrderVOs" table="PS_Hotel_Order" lazy="true"
+			cascade="all" inverse="false" order-by="PS_hotel_order asc">
+			<key>
+				<column name="hotel_Num" />
+			</key>
+			<one-to-many class="com.ziyyu.model._23_ps_hotel_order.PS_Hotel_OrderVO" />
+		</set>
+
+
+		<set name="hp_HotelRIVOs" table="HP_HotelRI" lazy="true"
+			cascade="all" inverse="false" order-by="HP_hotelRI_num asc">
+			<key><column name="hotel_Num"/> </key>
+			<one-to-many class="com.ziyyu.model._10_hp_hotelri.HP_HotelRIVO"/>
+		</set>
+
+
+		<set name="ps_Hotel_ItemVOs" table="PS_Hotel_Item" lazy="true" cascade="all"
+			inverse="false" order-by="PS_hotel_item asc">
+			<key><column name="hotel_Num"></column> </key>
+			<one-to-many class="com.ziyyu.model._26_ps_hotel_item.PS_Hotel_ItemVO"/>
+		</set>
+
+
+	</class>
+</hibernate-mapping>

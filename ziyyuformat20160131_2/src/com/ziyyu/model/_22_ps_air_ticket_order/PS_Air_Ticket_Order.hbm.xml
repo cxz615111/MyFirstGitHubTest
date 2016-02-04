@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.ziyyu.model._22_ps_air_ticket_order.PS_Air_Ticket_OrderVO"
+		table="PS_Air_Ticket_Order">
+
+		<composite-id>
+
+            <key-property name="ps_Air_Order" column="PS_air_order" />
+            
+			<key-many-to-one name="airlineVO"
+				class="com.ziyyu.model._25_airline.AirlineVO" lazy="false">
+				<column name="carrier_num" />
+			</key-many-to-one>
+
+
+
+		</composite-id>
+
+        <many-to-one name="memberVO"
+			class="com.ziyyu.model._01_member.MemberVO">
+			<column name="account" />
+		</many-to-one>
+		
+		
+		<property name="psa_Price" column="PSA_price" />
+	    <property name="psa_Flight" column="PSA_flight" />
+	    <property name="psa_Order_Stat" column="PSA_order_stat" />
+		<property name="psa_Pay_Date" column="PSA_pay_date" />
+		<property name="psa_Pay_Amount" column="PSA_pay_amount" />
+	</class>
+</hibernate-mapping>

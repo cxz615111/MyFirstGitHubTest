@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.ziyyu.model._03_dep_record.Dep_RecordVO" table="Dep_record">
+
+
+		<id name="trans_Num" column="trans_num" />
+
+		<property name="deposit_Time" column="deposit_time" />
+		<property name="trans_Money" column="trans_money" />
+		<property name="deposit_Point" column="deposit_point" />
+		
+        <many-to-one name="memberVO" class="com.ziyyu.model._01_member.MemberVO" lazy="false">
+            <column name="account" />
+        </many-to-one>
+
+
+	</class>
+</hibernate-mapping>

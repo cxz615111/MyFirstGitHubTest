@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.ziyyu.model._21_hp_trav_info.HP_Trav_InfoVO" table="HP_Trav_Info">
+
+		<composite-id>
+			<key-many-to-one name="hp_Pur_OrderVO"
+				class="com.ziyyu.model._20_hp_pur_order.HP_Pur_OrderVO" lazy="false">
+				<column name="pay_detail_num" />
+			</key-many-to-one>
+
+			<key-property name="passport_Num" column="passport_num" />
+		</composite-id>
+
+
+		<property name="name_En" column="name_en" />
+		<property name="gender" column="gender" />
+		<property name="birth" column="birth" />
+
+		<many-to-one name="nationalityVO" class="com.ziyyu.model._02_nationality.NationalityVO" lazy="false">
+			<column name="code" />
+		</many-to-one>
+
+		<property name="expiry_Date" column="expiry_date" />
+		<property name="address" column="address" />
+		<property name="postcode" column="postcode" />
+		<property name="pay_Relation" column="pay_relation" />
+
+	</class>
+</hibernate-mapping>
